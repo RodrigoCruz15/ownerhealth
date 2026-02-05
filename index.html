@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>B-AWARE Companion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main id="app-container">
+        <section id="home-screen" class="fade-in">
+            <div class="logo-placeholder">
+                <span style="font-size: 3rem; display: block;">🧠 </span>
+            </div>
+            <h1>B-Wise Week</h1>
+            <p class="intro-text">
+                Welcome to your neural health guide.<br>
+                Complete the daily quizzes to unlock your final prize.
+            </p>
+            <button class="primary-btn" onclick="startApp()">Começar Semana</button>
+            <button class="secondary-btn" onclick="renderFuelingScreen()">Guia de Nutrição (Fueling)</button>
+        </section>
+    </main>
+
+    <script src="js/quiz-data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/fuel-data.js"></script>
+
+</body>
+</html>
