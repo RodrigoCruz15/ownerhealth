@@ -106,7 +106,7 @@ function showQuizResult() {
             <p>${passed ? 'Excellent! You’ve mastered today’s topics.' : 'Not quite enough. Review the materials and try again.'}</p>
             
             ${passed ? 
-                (currentDayIndex < 6 ? 
+                (currentDayIndex < 4 ? 
                     `<button class="primary-btn" onclick="nextDay()">Continue to Next Day</button>` : 
                     `<button class="primary-btn" onclick="showFinalPrize()">Claim Your Prize!</button>`) 
                 : 
@@ -154,11 +154,10 @@ function renderFuelingScreen() {
                 </div>
 
             <div class="disclaimer-box">
-                <strong>Nota Honesta:</strong> Se a tua B12 estiver bloqueada pelo N₂O, estes nutrientes não serão absorvidos eficazmente até o bloqueio químico passar.
+                <strong>Nota Honesta:</strong> If your B12 is blocked by N₂O, these nutrients will not be absorbed effectively until the chemical blockage is removed.
             </div>
             
-            <button class="secondary-btn" onclick="renderDayIntro()">Voltar ao Plano</button>
-            <button class="secondary-btn" onclick="proceedToNextStep()">Próximo dia</button>
+            <button class="secondary-btn" onclick="proceedToNextStep()">Continue</button>
         </section>
     `;
 }
@@ -173,7 +172,7 @@ function showFoodDetail(index) {
         <div class="repair-bar-bg">
             <div class="repair-bar-fill" style="width: ${food.repair}%"></div>
         </div>
-        <small>Potencial de Reparo Neural: ${food.repair}%</small>
+        <small>Potencial Neural Repair: ${food.repair}%</small>
         
     `;
 }
@@ -183,9 +182,9 @@ function renderNerveLagGame() {
     appContainer.innerHTML = `
         <section class="fade-in">
             <h3>Nerve Signal Test</h3>
-            <p class="intro-text">Toca no círculo o mais rápido possível quando ele ficar VERDE.</p>
+            <p class="intro-text">Tap the circle as quickly as possible when it turns GREEN..</p>
             
-            <div id="signal-test" class="signal-circle" onclick="runNormalTest()">INICIAR</div>
+            <div id="signal-test" class="signal-circle" onclick="runNormalTest()">GO!</div>
             
             <div id="lag-results" class="lag-results-box" style="display:none;">
                 <p id="normal-time"></p>
@@ -217,7 +216,7 @@ function runNormalTest() {
         circle.onclick = () => {
             const reaction = Date.now() - start;
             document.getElementById('lag-results').style.display = 'block';
-            document.getElementById('normal-time').innerText = `Signal withou Myelin: ${reaction}ms`;
+            document.getElementById('normal-time').innerText = `Signal without Myelin: ${reaction}ms`;
             
             // Iniciar Fase 2 após breve pausa
             circle.innerText = "Ready...";

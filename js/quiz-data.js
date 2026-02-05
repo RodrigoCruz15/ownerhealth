@@ -81,6 +81,33 @@ const quizData = [
         ]
     },
     {
+        day: 4,
+        title: "Day 4: Restoration",
+        intro: "Fueling your body with the right nutrients to rebuild and protect your nerves.",
+        questions: [
+            {
+                q: "Which of these is a natural source of Vitamin B12?",
+                options: ["Apples", "Eggs and Meat", "White bread", "Bottled water"],
+                correct: 1
+            },
+            {
+                q: "Can you find B12 in plants without fortification?",
+                options: ["Yes, in all vegetables", "No, must be fortified or supplements", "Yes, in sunlight", "Yes, in carrots"],
+                correct: 1
+            },
+            {
+                q: "Why is gut health important for B12?",
+                options: ["Where B12 is absorbed into blood", "It isn't important", "Gut stores N2O", "Gut makes Myelin"],
+                correct: 0
+            },
+            {
+                q: "Recovery requires B12 and what other factor?",
+                options: ["Continuing N2O use", "Balanced diet and recovery time", "Drinking soda", "Staying awake"],
+                correct: 1
+            }
+        ]
+    },
+    {
         day: 5,
         title: "Day 5: The Future",
         intro: "You are now equipped with the knowledge to protect your body and make informed choices.",
