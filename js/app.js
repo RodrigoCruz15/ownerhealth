@@ -70,7 +70,7 @@ function handleAnswer(selectedIndex) {
             renderFuelingScreen(); 
             break;
 
-        case "1-1": // Dia 4, Questão 2 (Nerve Lag)
+        case "1-3": // Dia 4, Questão 2 (Nerve Lag)
             renderNerveLagGame();
             break; 
 
@@ -194,7 +194,7 @@ function renderNerveLagGame() {
             </div>
 
             <div id="game-nav" style="display:none; margin-top:20px;">
-                <button class="primary-btn" onclick="advanceQuiz()">Continuar Quiz</button>
+                <button class="primary-btn" onclick="proceedToNextStep()">Next Quiz</button>
             </div>
         </section>
     `;
@@ -204,23 +204,23 @@ function renderNerveLagGame() {
 function runNormalTest() {
     const circle = document.getElementById('signal-test');
     circle.onclick = null; // Evitar múltiplos cliques
-    circle.innerText = "Espera...";
+    circle.innerText = "Wait...";
     circle.style.backgroundColor = "#E5E5EA";
 
     const waitTime = Math.random() * 2000 + 1000;
 
     setTimeout(() => {
         circle.style.backgroundColor = "var(--success-green)";
-        circle.innerText = "AGORA!";
+        circle.innerText = "Now!";
         const start = Date.now();
 
         circle.onclick = () => {
             const reaction = Date.now() - start;
             document.getElementById('lag-results').style.display = 'block';
-            document.getElementById('normal-time').innerText = `Sinal com Mielina: ${reaction}ms`;
+            document.getElementById('normal-time').innerText = `Signal withou Myelin: ${reaction}ms`;
             
             // Iniciar Fase 2 após breve pausa
-            circle.innerText = "Preparar...";
+            circle.innerText = "Ready...";
             circle.onclick = null;
             setTimeout(() => runLagTest(reaction), 1500);
         };
@@ -231,13 +231,13 @@ function runNormalTest() {
 function runLagTest(originalReaction) {
     const circle = document.getElementById('signal-test');
     circle.style.backgroundColor = "#E5E5EA";
-    circle.innerText = "Espera...";
+    circle.innerText = "Wait...";
 
     const waitTime = Math.random() * 2000 + 1000;
 
     setTimeout(() => {
         circle.style.backgroundColor = "var(--success-green)";
-        circle.innerText = "AGORA!";
+        circle.innerText = "Now!";
         const start = Date.now();
 
         circle.onclick = () => {
@@ -245,13 +245,13 @@ function runLagTest(originalReaction) {
             const simulatedLag = 650; 
             const totalTime = (Date.now() - start) + simulatedLag;
             
-            document.getElementById('lag-time').innerText = `Sinal sem Mielina (Lag): ${totalTime}ms`;
+            document.getElementById('lag-time').innerText = `Sinal without Myelin (Lag): ${totalTime}ms`;
             document.getElementById('lag-explanation').innerHTML = `
-                A falta de B12 causou um <strong>atraso de ${simulatedLag}ms</strong>. 
-                Os teus nervos perderam a isolação, tornando o sinal lento.
+                The lack of B12 caused a <strong>delay of ${simulatedLag}ms</strong>. 
+                Your nerves have lost their insulation, slowing down the signal.
             `;
             
-            circle.innerText = "LENTO";
+            circle.innerText = "SLOW";
             circle.style.backgroundColor = "var(--oxidized-grey)";
             document.getElementById('game-nav').style.display = 'block';
         };

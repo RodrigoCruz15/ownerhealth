@@ -55,115 +55,34 @@ const quizData = [
     },
     {
         day: 3,
-        title: "Day 3: Warning Signs",
-        intro: "Learn to listen to your body and recognize the first signs of neurological distress.",
+        title: "Day 3: Feelings & Balance",
+        intro: "Understand the shift from the immediate 'high' to the physical and mental fatigue that follows.",
         questions: [
             {
-                q: "What is a common early sign of nerve signal 'lag'?",
-                options: ["Improving eyesight", "Tingling or 'pins and needles'", "Increased hearing", "Faster hair growth"],
+                q: "What is a common feeling immediately after the short euphoria of N2O?",
+                options: ["Infinite energy", "Increased focus", "Confusion and mental fog", "Better memory"],
+                correct: 2
+            },
+            {
+                q: "Why do you feel extreme fatigue in the days following use?",
+                options: ["You walked too much", "B12 is inactive and cannot produce energy (ATP)", "The weather changed", "N2O gives you extra calories"],
                 correct: 1
             },
             {
-                q: "How does B12 deficiency affect your physical energy?",
-                options: ["It causes extreme fatigue", "It gives you more energy", "It makes you run faster", "No impact"],
-                correct: 0
+                q: "How can frequent use affect your mood and mental health?",
+                options: ["It has no effect on mood", "It makes you permanently happy", "It can lead to irritability and anxiety", "It improves sleep quality"],
+                correct: 2
             },
             {
-                q: "What happens to your balance when B12 is low?",
-                options: ["It becomes perfect", "You may feel wobbly or unsteady", "You gain the ability to fly", "Nothing changes"],
-                correct: 1
-            },
-            {
-                q: "Where do neurological symptoms usually appear first?",
-                options: ["Top of the head", "Fingers and toes", "The stomach", "The ears"],
-                correct: 1
-            }
-        ]
-    },
-    {
-        day: 4,
-        title: "Day 4: Restoration",
-        intro: "Fueling your body with the right nutrients to rebuild and protect your nerves.",
-        questions: [
-            {
-                q: "Which of these is a natural source of Vitamin B12?",
-                options: ["Apples", "Eggs and Meat", "White bread", "Bottled water"],
-                correct: 1
-            },
-            {
-                q: "Can you find B12 in plants without fortification?",
-                options: ["Yes, in all vegetables", "No, must be fortified or supplements", "Yes, in sunlight", "Yes, in carrots"],
-                correct: 1
-            },
-            {
-                q: "Why is gut health important for B12?",
-                options: ["Where B12 is absorbed into blood", "It isn't important", "Gut stores N2O", "Gut makes Myelin"],
-                correct: 0
-            },
-            {
-                q: "Recovery requires B12 and what other factor?",
-                options: ["Continuing N2O use", "Balanced diet and recovery time", "Drinking soda", "Staying awake"],
+                q: "What physical sensation in hands and feet is a warning sign?",
+                options: ["Increased strength", "Tingling or numbness (pins and needles)", "Cold skin", "Blue nails"],
                 correct: 1
             }
         ]
     },
     {
         day: 5,
-        title: "Day 5: Restoration",
-        intro: "Fueling your body with the right nutrients to rebuild and protect your nerves.",
-        questions: [
-            {
-                q: "Which of these is a natural source of Vitamin B12?",
-                options: ["Apples", "Eggs and Meat", "White bread", "Bottled water"],
-                correct: 1
-            },
-            {
-                q: "Can you find B12 in plants without fortification?",
-                options: ["Yes, in all vegetables", "No, must be fortified or supplements", "Yes, in sunlight", "Yes, in carrots"],
-                correct: 1
-            },
-            {
-                q: "Why is gut health important for B12?",
-                options: ["Where B12 is absorbed into blood", "It isn't important", "Gut stores N2O", "Gut makes Myelin"],
-                correct: 0
-            },
-            {
-                q: "Recovery requires B12 and what other factor?",
-                options: ["Continuing N2O use", "Balanced diet and recovery time", "Drinking soda", "Staying awake"],
-                correct: 1
-            }
-        ]
-    },
-    {
-        day: 6,
-        title: "Day 6: The Support Network",
-        intro: "Health is a collective journey. Breaking isolation is key to long-term well-being.",
-        questions: [
-            {
-                q: "Why is Peer Support important?",
-                options: ["To see who is best", "To reduce isolation and share facts", "To judge others", "To trade balloons"],
-                correct: 1
-            },
-            {
-                q: "What should you do if you feel severe numbness?",
-                options: ["Wait 6 months", "Seek medical advice immediately", "Use more N2O", "Ignore it"],
-                correct: 1
-            },
-            {
-                q: "Does health literacy help recovery?",
-                options: ["Yes, it leads to informed decisions", "No, it makes it worse", "It doesn't matter", "Facts are boring"],
-                correct: 0
-            },
-            {
-                q: "What is a 'trigger'?",
-                options: ["A type of food", "A situation that makes you want to use", "A medical tool", "A part of the app"],
-                correct: 1
-            }
-        ]
-    },
-    {
-        day: 7,
-        title: "Day 7: The Future",
+        title: "Day 5: The Future",
         intro: "You are now equipped with the knowledge to protect your body and make informed choices.",
         questions: [
             {
