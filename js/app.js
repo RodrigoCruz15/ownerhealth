@@ -74,6 +74,14 @@ function handleAnswer(selectedIndex) {
             renderNerveLagGame();
             break; 
 
+        case "4-3": // Dia 7, Questão 4 (Índice começa em 0)
+            renderTimeCapsule();
+            break;
+
+        case "0-3": // Dia 3, Questão 2
+        renderFocusDrift();
+        break;
+
         // Podes adicionar mais casos facilmente aqui:
         // case "2-3": renderOutraAtividade(); break;
 
@@ -193,7 +201,7 @@ function renderNerveLagGame() {
             </div>
 
             <div id="game-nav" style="display:none; margin-top:20px;">
-                <button class="primary-btn" onclick="proceedToNextStep()">Next Quiz</button>
+                <button class="primary-btn" onclick="proceedToNextStep()">Continue</button>
             </div>
         </section>
     `;
@@ -255,4 +263,126 @@ function runLagTest(originalReaction) {
             document.getElementById('game-nav').style.display = 'block';
         };
     }, waitTime);
+}
+
+function renderTimeCapsule() {
+    appContainer.innerHTML = `
+        <section class="fade-in">
+            <h2>The Time Capsule</h2>
+            <p class="intro-text">Write a commitment to your future self. How will you protect your neural health starting today?</p>
+            
+            <textarea id="capsule-text" placeholder="Ex: I'm going to take a 3-month break and focus on my nutrition...." 
+                style="width: 100%; height: 120px; padding: 10px; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; margin-bottom: 15px;"></textarea>
+
+            <button class="primary-btn" onclick="sealCapsule()">Seal the Commitment</button>
+        </section>
+    `;
+}
+
+function sealCapsule() {
+    const text = document.getElementById('capsule-text').value;
+    if (text.trim() === "") {
+        alert("Please write your commitment before sealing it.");
+        return;
+    }
+
+    // Guardamos o texto para mostrar no final ou apenas validamos a ação
+   appContainer.innerHTML = `
+    <section class="fade-in" style="text-align: center;">
+        <div style="font-size: 4rem; margin-bottom: 20px;">🔒</div>
+        <h2>Commitment Sealed!</h2>
+        <p>This is a contract with yourself. Your health is your greatest asset.</p>
+        
+        <div style="background: #fdf6e3; border: 1px dashed #d3af37; padding: 15px; margin: 20px 0; font-style: italic; color: #5d4037;">
+            "${text}"
+        </div>
+
+        <p style="font-size: 0.8rem; color: var(--oxidized-grey);">Take a screenshot so you don't forget it.</p>
+        
+        <button class="primary-btn" onclick="showFinalPrize()">Claim Final Prize</button>
+    </section>
+`;
+}
+
+let driftRounds = 0;
+const totalDriftRounds = 3;
+
+function renderFocusDrift() {
+    const colors = [
+        { name: "RED", hex: "#FF3B30" },
+        { name: "BLUE", hex: "#007AFF" },
+        { name: "GREEN", hex: "#34C759" },
+        { name: "YELLOW", hex: "#FFCC00" }
+    ];
+
+    // 1. A cor REAL das letras (A que o utilizador deve escolher)
+    const letterColor = colors[Math.floor(Math.random() * colors.length)];
+    
+    // 2. O que o texto diz (Ex: diz "RED", mas a cor da letra é Azul)
+    const wordWritten = colors[Math.floor(Math.random() * colors.length)];
+    
+    // 3. A cor do fundo da moldura (Igual ao que está escrito para confundir)
+    const bgFrameColor = wordWritten.hex;
+
+    appContainer.innerHTML = `
+        <section class="fade-in" style="text-align: center;">
+            <h3>Mental Fog Test</h3>
+            <p class="intro-text">Match the <strong>COLOR OF THE LETTERS</strong>!</p>
+            
+            <div id="drift-container" style="
+                background-color: ${bgFrameColor}; 
+                padding: 40px; 
+                margin: 20px auto; 
+                border-radius: 20px;
+                width: 80%;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                transition: all 0.2s;">
+                
+                <span style="
+                    font-size: 3.5rem; 
+                    font-weight: 900; 
+                    color: ${letterColor.hex};
+                    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                    ${wordWritten.name}
+                </span>
+            </div>
+
+            <div class="options-grid">
+                ${colors.map(c => `
+                    <button class="option-btn" onclick="checkFocus('${c.hex}', '${letterColor.hex}')">
+                        ${c.name}
+                    </button>
+                `).join('')}
+            </div>
+            <p style="margin-top: 20px; font-size: 0.8rem; color: var(--oxidized-grey);">Round ${driftRounds + 1} of ${totalDriftRounds}</p>
+        </section>
+    `;
+}
+
+function checkFocus(selectedHex, correctHex) {
+    if (selectedHex === correctHex) {
+        driftRounds++;
+        if (driftRounds < totalDriftRounds) {
+            renderFocusDrift();
+        } else {
+            showDriftResult(true);
+        }
+    } else {
+        showDriftResult(false);
+    }
+}
+
+function showDriftResult(success) {
+    driftRounds = 0; // Reset para a próxima vez
+    appContainer.innerHTML = `
+        <section class="fade-in" style="text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">${success ? '🎯' : '🌫️'}</div>
+            <h2>${success ? 'Focus Maintained!' : 'Brain Fog Detected!'}</h2>
+            <p>${success ? 
+                'Your neural pathways are communicating sharply.' : 
+                'It’s harder than it looks, right? Lack of B12 can make this mental processing even slower.'}</p>
+            
+            <button class="primary-btn" onclick="proceedToNextStep()">Continue Quiz</button>
+        </section>
+    `;
 }
