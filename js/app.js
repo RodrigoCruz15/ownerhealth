@@ -147,7 +147,7 @@ function renderFuelingScreen() {
     appContainer.innerHTML = `
         <section class="fade-in">
             <h2>Fueling & Repair</h2>
-            <p class="intro-text">Clica nos alimentos para ver o potencial de reparo da tua mielina.</p>
+            <p class="intro-text">Click on the foods to see their potential for repairing your myelin.</p>
             
             <div class="food-grid">
                 ${foodData.map((food, index) => `
