@@ -78,7 +78,7 @@ function handleAnswer(selectedIndex) {
             renderTimeCapsule();
             break;
 
-        case "0-3": // Dia 3, Questão 2
+        case "2-3": // Dia 3, Questão 2
         renderFocusDrift();
         break;
 
